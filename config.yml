@@ -1,0 +1,52 @@
+configurations:
+  libs:
+    id:
+      - '1Iw5MgVGq_otEkkn8HKE_TR-ziwOc5QxE'
+    ext: '.zip'
+    path: './libs'
+    import: True
+  models:
+    id:
+      - '1Uz7Mf7WJvLPRX_5mmFvSx5x0l74T8i-F'
+    ext: '.zip'
+    path: './models'
+    import: False
+  training:
+    id:
+      - '1ktuR-K2vJ_GuOzPXJ2ykdpX8eBvmSl42'
+      - '16gcZGsI_blTNR0aMRnn9ICrSH0TYbLnw'
+    ext: '.h5'
+    path: './data/trainingSet'
+    import: False
+
+libs:
+  predictor: 'libs/shape_predictor_68_face_landmarks.dat'
+  detector: 'libs/opencv_face_detector.pbtxt'
+  detector-uint8: 'libs/opencv_face_detector_uint8.pb'
+
+models:
+  beard: 'models/beard/'
+  mustache: 'models/mustache/'
+  glasses: 'models/glasses/'
+
+output:
+  results: 'output/'
+
+dataset:
+  folder: 'data/'
+  training: 'data/trainingSet/'
+  test: 'data/testSet/'
+
+features:
+  with:
+    beard: 'beard'
+    mustache: 'mustache'
+    glasses: 'glasses'
+  without:
+    beard: 'noBeard'
+    mustache: 'noMustache'
+    glasses: 'noGlasses'
+
+labels:
+  test: 'testLabels.csv'
+  results: 'results.csv'
